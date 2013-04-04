@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Ficha de cadastro/abertura de conta - Pessoa Jurídica</title>
+    <title>Ficha de cadastro - Pessoa Jurídica</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="stylesheets/vendors.css">
@@ -51,7 +51,7 @@
                 <h3>1. Identificação do cliente</h3>
               </a>
             </div>
-            <div id="identificacaoCliente" class="accordion-body collapse">
+            <div id="identificacaoCliente" class="accordion-body collapse in">
               <div class="accordion-inner">
                 <fieldset>
                   <!-- Razão social -->
@@ -210,9 +210,9 @@
                   <div class="control-group">
                     <label class="control-label">Forma de constituição <em>*</em></label>
                     <div class="controls">
-                      <label class="radio inline"><input type="radio" value="sa"   name="formaConstituicao" />S.A.</label>
-                      <label class="radio inline"><input type="radio" value="ss"   name="formaConstituicao" />S/S </label>
-                      <label class="radio inline"><input type="radio" value="ltda" name="formaConstituicao" />LTDA</label>
+                      <label class="radio"><input type="radio" value="sa"   name="formaConstituicao" />S.A.</label>
+                      <label class="radio"><input type="radio" value="ss"   name="formaConstituicao" />S/S </label>
+                      <label class="radio"><input type="radio" value="ltda" name="formaConstituicao" />LTDA</label>
                     </div>
                   </div>
                   
@@ -237,10 +237,10 @@
                   <div class="control-group">
                     <label class="control-label">Controle acionário</label>
                     <div class="controls">
-                      <label class="radio inline"><input type="radio" value="nacional"    name="controleAcionario" />Nacional</label>
-                      <label class="radio inline"><input type="radio" value="estrangeiro" name="controleAcionario" />Estrangeiro</label>
-                      <label class="radio inline"><input type="radio" value="estatal"     name="controleAcionario" />Estatal</label>
-                      <label class="radio inline"><input type="radio" value="misto"       name="controleAcionario" />Misto</label>
+                      <label class="radio"><input type="radio" value="nacional"    name="controleAcionario" />Nacional</label>
+                      <label class="radio"><input type="radio" value="estrangeiro" name="controleAcionario" />Estrangeiro</label>
+                      <label class="radio"><input type="radio" value="estatal"     name="controleAcionario" />Estatal</label>
+                      <label class="radio"><input type="radio" value="misto"       name="controleAcionario" />Misto</label>
                     </div>
                   </div>
                   
@@ -279,7 +279,7 @@
                 <h3>2. Atividade</h3>
               </a>
             </div>
-            <div id="atividade" class="accordion-body collapse in">
+            <div id="atividade" class="accordion-body collapse">
               <div class="accordion-inner">
                 <fieldset>
                   
@@ -471,7 +471,7 @@
         </div>
         
         <div class="form-actions">
-          <input type="button" class="btn btn-secondary" value="Voltar" href="index.html">
+          <a class="btn btn-secondary" href="index.html">Voltar</a>
         </div>
       </form>
       

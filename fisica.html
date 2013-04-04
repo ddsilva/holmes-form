@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!-- Consider specifying the language of your content by adding the `lang` attribute to <html> -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Ficha de cadastro - Pessoa física</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="stylesheets/vendors.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/guideline.css">
+    
+    <style>
+      .input-radio { margin-left: 10px; }
+      .uppercase {text-transform: uppercase;}
+    </style>
+  </head>
+  <body>
+    <div class="application-navbar navbar">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="brand" href="index.html">
+            Ficha de cadastro
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div id="application" class="container">
+      <header class="jumbotron masthead">
+        <div class="inner">
+          <h1>Ficha de cadastro <small>Pessoa física</small> </h1>
+        </div>
+      </header>
+      
+      <form class="form-horizontal" validation novalidate>
+        
+        <div class="accordion" id="accordionForm">
+          <!-- 1. Dados da conta -->
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#dadosConta">
+                <h3>1. Dados da conta</h3>
+              </a>
+            </div>
+            <div id="dadosConta" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                <fieldset>
+
+                  <!-- Tipo da conta -->
+                  <div class="control-group">
+                    <label class="control-label">Tipo da conta <em>*</em></label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="individual"           name="tipoConta" />Individual</label>
+                      <label class="radio"><input type="radio" value="conjuntaNaoSolidaria" name="tipoConta" />Conjunta não solidária (E)</label>
+                      <label class="radio"><input type="radio" value="conjuntaSolidaria"    name="tipoConta" />Conjunta solidária (E/OU)</label>
+                    </div>
+                  </div>
+                  
+                  <!-- Modalidade -->
+                  <div class="control-group">
+                    <label class="control-label">Modalidade <em>*</em></label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="corrente" name="modalidade" />Conta corrente</label>
+                      <label class="radio"><input type="radio" value="outro"    name="modalidade" />
+                        Outro
+                        <input type="text" class="input-xlarge input-radio" id="modalidadeOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <!-- Data de abertura da conta -->
+                  <div class="control-group">
+                    <label class="control-label" for="dataAbertura">Data de abertura da conta <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="dataAbertura" id="dataAbertura" mask="date" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Data de encerramento da conta -->
+                  <div class="control-group">
+                    <label class="control-label" for="dataEncerramento">Data de encerramento da conta <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="dataEncerramento" id="dataEncerramento"  mask="date" required="true" />
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        
+          <!-- 2. Dados pessoais -->
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#dadosPessoais">
+                <h3>2. Dados pessoais</h3>
+              </a>
+            </div>
+            <div id="dadosPessoais" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <fieldset>
+
+                  <strong>Identificação</strong>
+                  <hr />
+
+                  <!-- Nome completo sem abreviações -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomeCompleto">Nome completo sem abreviações <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomeCompleto" id="nomeCompleto" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Nome abreviado (24 caracteres) -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomeAbreviado">Nome abreviado <br/>(24 caracteres) <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomeAbreviado" id="nomeAbreviado" required="true" maxlength="24"/>
+                    </div>
+                  </div>
+
+                  
+                  <strong>Documentos</strong>
+                  <hr />
+                  
+                  <!-- CPF -->
+                  <div class="control-group">
+                    <label class="control-label" for="cpf">CPF <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="cpf" id="cpf" required="true" mask="cpf"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Documento de identidade (Tipo e Nº) -->
+                  <div class="control-group">
+                    <label class="control-label" for="identidade">Documento de identidade (Tipo e Nº) <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="identidade" id="identidade" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Órgão emissor -->
+                  <div class="control-group">
+                    <label class="control-label" for="orgaoEmissor">Órgão emissor <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="orgaoEmissor" id="orgaoEmissor" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Data de emissão -->
+                  <div class="control-group">
+                    <label class="control-label" for="dataEmissão">Data de emissão</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="dataEmissão" id="dataEmissão" required="true" mask="date"/>
+                    </div>
+                  </div>
+                  
+                  <hr />
+                  
+                  <!-- Sexo -->
+                  <div class="control-group">
+                    <label class="control-label">Sexo</label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="masculino"name="sexo" />Masculino</label>
+                      <label class="radio"><input type="radio" value="feminino" name="sexo" />Feminino</label>
+                    </div>
+                  </div>
+                  
+                  <!-- Data de nascimento -->
+                  <div class="control-group">
+                    <label class="control-label" for="dataNascimento">Data de nascimento</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="dataNascimento" id="dataNascimento" required="true" mask="date"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Local de Nascimento -->
+                  <div class="control-group">
+                    <label class="control-label" for="localNascimento">Local de Nascimento <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="localNascimento" id="localNascimento" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- UF nascimento -->
+                  <div class="control-group">
+                    <label class="control-label" for="ufNascimento">UF <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini uppercase" name="ufNascimento" id="ufNascimento" required="true" maxlength="2" mask="alpha"/>
+                    </div>
+                  </div>
+                  
+                  <!-- País -->
+                  <div class="control-group">
+                    <label class="control-label" for="pais">País <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="pais" id="pais" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Modalidade -->
+                  <div class="control-group">
+                    <label class="control-label">Nacionalidade <em>*</em></label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="brasileira" name="nacionalidade" />Brasileira</label>
+                      <label class="radio"><input type="radio" value="outro"      name="nacionalidade" />
+                        Outra
+                        <input type="text" class="input-xlarge input-radio" id="nacionalidadeOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <strong>Filiação</strong>
+                  <hr />
+                  
+                  <!-- Nome do pai -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomePai">Nome do pai <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomePai" id="nomePai" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Nome da mãe -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomeMae">Nome da mãe <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomeMae" id="nomeMae" required="true" />
+                    </div>
+                  </div>
+                  
+                  <strong>Endereço residencial</strong>
+                  <hr />
+                  
+                  <!-- Logradouro residencial - Rua, avenida, praça -->
+                  <div class="control-group">
+                    <label class="control-label" for="logradouroResidencial">Logradouro - Rua, avenida, praça <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="logradouroResidencial" id="logradouroResidencial" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Número residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="numeroResidencial">Número <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini" name="numeroResidencial" id="numeroResidencial" required="true" mask="numeric" />
+                    </div>
+                  </div>
+                  
+                  <!-- Complemento residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="complementoResidencial">Complemento</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="complementoResidencial" id="complementoResidencial" />
+                    </div>
+                  </div>
+                  
+                  <!-- Bairro residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="bairroResidencial">Bairro <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="bairroResidencial" id="bairroResidencial" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Cidade residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="cidadeResidencial">Cidade <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="cidadeResidencial" id="cidadeResidencial" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- UF residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="ufResidencial">UF <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini uppercase" name="ufResidencial" id="ufResidencial" required="true" maxlength="2" mask="alpha"/>
+                    </div>
+                  </div>
+                  
+                  <!-- CEP residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="cepResidencial">CEP <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="cepResidencial" id="cepResidencial" required="true" mask="cep" />
+                    </div>
+                  </div>
+                  
+                  <strong>Cotato</strong>
+                  <hr />
+                  
+                  <!-- Telefone residencial -->
+                  <div class="control-group">
+                    <label class="control-label" for="telefoneResidencial">Telefone residencial <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="telefoneResidencial" id="telefoneResidencial" required="true" mask="phone"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Fax -->
+                  <div class="control-group">
+                    <label class="control-label" for="faxResidencial">Fax</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="faxResidencial" id="faxResidencial" mask="phone"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Celular -->
+                  <div class="control-group">
+                    <label class="control-label" for="celular">Celular</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="celular" id="celular" mask="(99)9999-99999"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Endereço eletrônico (E-mail) -->
+                  <div class="control-group">
+                    <label class="control-label" for="emailPessoal">Endereço eletrônico <br>(E-mail) <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="emailPessoal" id="emailPessoal" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <strong>Outros</strong>
+                  <hr />
+                  
+                  <!-- Tipo de residência -->
+                  <div class="control-group">
+                    <label class="control-label">Tipo de residência</label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="propria"    name="tipoResidencia" />Própria</label>
+                      <label class="radio"><input type="radio" value="alugada"    name="tipoResidencia" />Alugada</label>
+                      <label class="radio"><input type="radio" value="financiada" name="tipoResidencia" />Financiada</label>
+                      <label class="radio"><input type="radio" value="outro"      name="tipoResidencia" />
+                        Outro
+                        <input type="text" class="input-xlarge input-radio" id="tipoResidenciaOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <!-- Tempo de residência -->
+                  <div class="control-group">
+                    <label class="control-label" for="tempoResidencia">Tempo de residência</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="tempoResidencia" id="tempoResidencia"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Profissão -->
+                  <div class="control-group">
+                    <label class="control-label" for="profissao">Profissão <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="profissao" id="profissao" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Nº de dependentes -->
+                  <div class="control-group">
+                    <label class="control-label" for="dependentes">Nº de dependentes</label>
+                    <div class="controls">
+                      <input type="text" class="input-mini" name="dependentes" id="dependentes" mask="numeric"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Escolaridade -->
+                  <div class="control-group">
+                    <label class="control-label">Escolaridade</label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="fundamental" name="escolaridade" />Ensino fundamental (1º Grau)</label>
+                      <label class="radio"><input type="radio" value="medio"       name="escolaridade" />Ensino médio (2º Grau)</label>
+                      <label class="radio"><input type="radio" value="superior"    name="escolaridade" />Superior</label>
+                      <label class="radio"><input type="radio" value="outro"       name="escolaridade" />
+                        Outra
+                        <input type="text" class="input-xlarge input-radio" id="escolaridadeOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <!-- Estado civil -->
+                  <div class="control-group">
+                    <label class="control-label">Estado civil <em>*</em></label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="solteiro"                  name="estadoCivil" />Solteiro</label>
+                      <label class="radio"><input type="radio" value="casadoComunhaoTotalBens"   name="estadoCivil" />Casado com comunhão total de bens</label>
+                      <label class="radio"><input type="radio" value="casadoComunhaoParcialBens" name="estadoCivil" />Casado com comunhão parcial de bens</label>
+                      <label class="radio"><input type="radio" value="casadoSeparacaoBens"       name="estadoCivil" />Casado com separação de bens</label>
+                      <label class="radio"><input type="radio" value="separadoJudicialmente"     name="estadoCivil" />Separado judicialmente</label>
+                      <label class="radio"><input type="radio" value="divorciado"                name="estadoCivil" />Divorciado</label>
+                      <label class="radio"><input type="radio" value="viuvo"                     name="estadoCivil" />Viúvo</label>
+                      <label class="radio"><input type="radio" value="companheiro"               name="estadoCivil" />Companheiro</label>
+                      <label class="radio"><input type="radio" value="outro"                     name="estadoCivil" />
+                        Outro
+                        <input type="text" class="input-xlarge input-radio" id="estadoCivilOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Dados profissionais -->
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#dadosProfissionais">
+                <h3>3. Dados profissionais</h3>
+              </a>
+            </div>
+            <div id="dadosProfissionais" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <fieldset>
+                  
+                  <!-- Código de ocupação principal (IR) -->
+                  <div class="control-group">
+                    <label class="control-label" for="ir">Código de ocupação principal (IR) </label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="ir" id="ir" />
+                    </div>
+                  </div>
+                  
+                  <!-- Nome de ocupação -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomeOcupacao">Nome de ocupação </label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomeOcupacao" id="nomeOcupacao" />
+                    </div>
+                  </div>
+                  
+                  <!-- Remuneração mensal (R$) -->
+                  <div class="control-group">
+                    <label class="control-label" for="remuneracaoMensal">Remuneração mensal (R$) <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="remuneracaoMensal" id="remuneracaoMensal" required="true" mask="integer"/>
+                    </div>
+                  </div>
+                  
+                  <strong>Empresa</strong>
+                  <hr>
+                  
+                  <!-- Empresa na qual trabalha ou é sócio/proprietário -->
+                  <div class="control-group">
+                    <label class="control-label" for="empresa">Empresa na qual trabalha ou é sócio/proprietário</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="empresa" id="empresa" />
+                    </div>
+                  </div>
+                  
+                  <!-- CNPJ -->
+                  <div class="control-group">
+                    <label class="control-label" for="empresaCnpj">CNPJ</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="empresaCnpj" id="empresaCnpj" mask="cnpj"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Data de adimissão -->
+                  <div class="control-group">
+                    <label class="control-label" for="dataAdmissao">Data de adimissão</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="dataAdmissao" id="dataAdmissao" mask="date"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Endereço comercial - Rua, avenida, praça -->
+                  <div class="control-group">
+                    <label class="control-label" for="enderecoComercial">Endereço comercial - Rua, avenida, praça <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="enderecoComercial" id="enderecoComercial" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Número comercial -->
+                  <div class="control-group">
+                    <label class="control-label" for="numeroComercial">Número</label>
+                    <div class="controls">
+                      <input type="text" class="input-mini" name="numeroComercial" id="numeroComercial" required="true" mask="numeric"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Complemento comercial -->
+                  <div class="control-group">
+                    <label class="control-label" for="complementoComercial">Complemento</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="complementoComercial" id="complementoComercial" />
+                    </div>
+                  </div>
+                  
+                  <!-- Bairro comercial -->
+                  <div class="control-group">
+                    <label class="control-label" for="bairroComercial">Bairro <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="bairroComercial" id="bairroComercial" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Cidade comercial -->
+                  <div class="control-group">
+                    <label class="control-label" for="cidadeComercial">Cidade <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="cidadeComercial" id="cidadeComercial" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <!-- UF comercial-->
+                  <div class="control-group">
+                    <label class="control-label" for="ufComercial">UF <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini uppercase" name="ufComercial" id="ufComercial" required="true" maxlength="2" mask="alpha"/>
+                    </div>
+                  </div>
+                  
+                  <!-- País -->
+                  <div class="control-group">
+                    <label class="control-label" for="paisComercial">País <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="paisComercial" id="paisComercial" required="true"/>
+                    </div>
+                  </div>
+                  
+                  <!-- CEP -->
+                  <div class="control-group">
+                    <label class="control-label" for="cepComercial">CEP <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="cepComercial" id="cepComercial" required="true" mask="cep"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Cargo atual ou função -->
+                  <div class="control-group">
+                    <label class="control-label" for="cargoAtual">Cargo atual ou função</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="cargoAtual" id="cargoAtual" />
+                    </div>
+                  </div>
+                  
+                  <!-- Telefone -->
+                  <div class="control-group">
+                    <label class="control-label" for="telefoneComercial">Telefone <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="telefoneComercial" id="telefoneComercial" required="true" mask="phone"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Ramal -->
+                  <div class="control-group">
+                    <label class="control-label" for="ramalComercial">Ramal</label>
+                    <div class="controls">
+                      <input type="text" class="input-mini" name="ramalComercial" id="ramalComercial" mask="number"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Fax -->
+                  <div class="control-group">
+                    <label class="control-label" for="faxComercial">Fax</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="faxComercial" id="faxComercial" mask="phone"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Endereço eletrônico (E-mail) -->
+                  <div class="control-group">
+                    <label class="control-label" for="emailComercial">Endereço eletrônico <br>(E-mail)</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="emailComercial" id="emailComercial"/>
+                    </div>
+                  </div>
+                  
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Dados do conguje/companheiro -->
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#dadosConguje">
+                <h3>4. Dados do conguje/companheiro</h3>
+              </a>
+            </div>
+            <div id="dadosConguje" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <fieldset>
+
+                  <!-- Nome completo sem abreviações -->
+                  <div class="control-group">
+                    <label class="control-label" for="nomeConguje">Nome completo sem abreviações</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="nomeConguje" id="nomeConguje" />
+                    </div>
+                  </div>
+                  
+                  <!-- CPF conguje-->
+                  <div class="control-group">
+                    <label class="control-label" for="cpfConguje">CPF</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="cpfConguje" id="cpfConguje" mask="cpf"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Documento de identidade conguje (Tipo e Nº) -->
+                  <div class="control-group">
+                    <label class="control-label" for="identidadeConguje">Documento de identidade (Tipo e Nº)</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="identidadeConguje" id="identidadeConguje" />
+                    </div>
+                  </div>
+                  
+                  <!-- Órgão emissor conguje-->
+                  <div class="control-group">
+                    <label class="control-label" for="orgaoEmissorConguje">Órgão emissor</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="orgaoEmissorConguje" id="orgaoEmissorConguje" />
+                    </div>
+                  </div>
+                  
+                  <!-- Data de emissão conguje-->
+                  <div class="control-group">
+                    <label class="control-label" for="dataEmissãoConguje">Data de emissão</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="dataEmissãoConguje" id="dataEmissãoConguje" mask="date"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Código de ocupação principal (IR) conguje -->
+                  <div class="control-group">
+                    <label class="control-label" for="irConguje">Código de ocupação principal (IR) </label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="irConguje" id="irConguje" />
+                    </div>
+                  </div>
+                  
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Endereço de correspondência (Preenchido apenas na ficha do 1º titular da conta) -->
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#dadosCorrespondencia">
+                <h3>5. Endereço de correspondência (Preenchido apenas na ficha do 1º titular da conta)</h3>
+              </a>
+            </div>
+            <div id="dadosCorrespondencia" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <fieldset>
+                  
+                  <!-- Tipo -->
+                  <div class="control-group">
+                    <label class="control-label">Tipo <em>*</em></label>
+                    <div class="controls">
+                      <label class="radio"><input type="radio" value="residencial" name="tipoEnderecoCorrespondencia" />Residencial</label>
+                      <label class="radio"><input type="radio" value="comercial"   name="tipoEnderecoCorrespondencia" />Comercial</label>
+                      <label class="radio"><input type="radio" value="outro"       name="tipoEnderecoCorrespondencia" />
+                        Outro
+                        <input type="text" class="input-xlarge input-radio" id="tipoEnderecoCorrespondenciaOutro">
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <!-- Logradouro correspondência - Rua, avenida, praça -->
+                  <div class="control-group">
+                    <label class="control-label" for="logradouroCorrespondencia">Logradouro - Rua, avenida, praça <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="logradouroCorrespondencia" id="logradouroCorrespondencia" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Número correspondência -->
+                  <div class="control-group">
+                    <label class="control-label" for="numeroCorrespondencia">Número <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini" name="numeroCorrespondencia" id="numeroCorrespondencia" required="true" mask="numeric" />
+                    </div>
+                  </div>
+                  
+                  <!-- Complemento correspondência -->
+                  <div class="control-group">
+                    <label class="control-label" for="complementoCorrespondencia">Complemento</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="complementoCorrespondencia" id="complementoCorrespondencia" />
+                    </div>
+                  </div>
+                  
+                  <!-- Bairro correspondência -->
+                  <div class="control-group">
+                    <label class="control-label" for="bairroCorrespondencia">Bairro <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="bairroCorrespondencia" id="bairroCorrespondencia" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- Cidade correspondência -->
+                  <div class="control-group">
+                    <label class="control-label" for="cidadeCorrespondencia">Cidade <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge" name="cidadeCorrespondencia" id="cidadeCorrespondencia" required="true" />
+                    </div>
+                  </div>
+                  
+                  <!-- UF nascimento -->
+                  <div class="control-group">
+                    <label class="control-label" for="ufCorrespondencia">UF <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-mini uppercase" name="ufCorrespondencia" id="ufCorrespondencia" required="true" maxlength="2" mask="alpha"/>
+                    </div>
+                  </div>
+                  
+                  <!-- CEP correspondência -->
+                  <div class="control-group">
+                    <label class="control-label" for="cepCorrespondencia">CEP <em>*</em></label>
+                    <div class="controls">
+                      <input type="text" class="input-medium" name="cepCorrespondencia" id="cepCorrespondencia" required="true" mask="cep" />
+                    </div>
+                  </div>
+                  
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="form-actions">
+          <a class="btn btn-secondary" href="index.html">Voltar</a>
+        </div>
+      </form>
+      
+    </div>
+      
+      
+    <script src="javascript/vendors.js"></script>
+    <script src="javascript/guideline.js"></script>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  </body>
+</html>

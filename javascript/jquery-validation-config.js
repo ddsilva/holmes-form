@@ -1,0 +1,1 @@
+jquery-validation-config.js

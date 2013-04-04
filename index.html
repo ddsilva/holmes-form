@@ -10,10 +10,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Ficha de cadastro/abertura de conta - Pessoa Jurídica</title>
+    <title>Ficha de cadastro</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    
     <link rel="stylesheet" type="text/css" href="stylesheets/guideline.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
+  
   </head>
   <body>
     <div class="application-navbar navbar">
@@ -37,14 +40,37 @@
       <header class="jumbotron masthead">
         <div class="inner">
           <h1>Ficha de cadastro</h1>
-          <ul>
-            <li ><a href="fisica.html">Pessoa física</a></li>
-            <li ><a href="juridica.html">Pessoa jurídica</a></li>
-          </ul>
         </div>
       </header>
-    </div>
       
+      <section class="well text-center">
+        <!-- <form> -->
+          
+          <div class="control-group">
+            <div class="controls">
+              <label class="radio inline"><input type="radio" name="tipoDocumento" value="cpf">CPF</label>
+              <label class="radio inline"><input type="radio" name="tipoDocumento" value="cnpj">CNPJ</label>
+            </div>
+          </div>
+          
+          <form class="form-search" id="formSearch">
+            <div class="input-append">
+              <input type="text" class="text-center input-xxlarge search-query" id="cpfInput"  name="cpf" placeholder="CPF"   mask="cpf">
+              <button type="submit"  id="cpfBtn" class="btn">Buscar</button>
+              
+              <input type="text" class="text-center input-xxlarge search-query" id="cnpjInput" name="cnpj" placeholder="CNPJ" mask="cnpj" style="display:none">
+              <button type="submit" id="cnpjBtn" class="btn" style="display:none">Buscar</button>
+            </div>
+          </form>
+      
+      </section>
+    
+    </div>
+    
+    <script src="javascript/vendors.js"></script>
+    <script src="javascript/guideline.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/index.js"></script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>
 </html>

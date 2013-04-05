@@ -1,5 +1,7 @@
 (function($) {
-  window.Feedback = {
+  window.Utils = {};
+  // Feedback object
+  window.Utils.Feedback = {
     defaults: {
       'layout': 'center',
       'theme': 'noty_theme_twitter',
@@ -17,10 +19,10 @@
       'modal': false
     },
     set: function(message, type, options) {
-      if (options == null) {
+      if (!options){
         options = {};
       }
-      
+
       if (typeof noty === 'undefined' || noty === null) {
         return;
       }
@@ -44,4 +46,25 @@
       return $.noty.closeAll();
     }
   };
+
+  window.Utils.getUrlVars = function() {
+    var vars = {}, hash;
+    var href = decodeURIComponent((window.location.href));
+    var hashes = href.slice(href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+  };
+
+  // Setup do ajax
+  $.ajaxSetup({
+    cache: false,
+    error: function(){
+      if (typeof window.Utils.Feedback !== 'undefined' && window.Utils.Feedback !== null) {
+        window.Utils.Feedback.error('Erro na requisição.');
+      }
+    }
+  });
 }(jQuery));

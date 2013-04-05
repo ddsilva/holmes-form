@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="stylesheets/vendors.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/guideline.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/commom.css">
   </head>
   <body>
     <div class="application-navbar navbar">
@@ -37,11 +38,19 @@
     <div id="application" class="container">
       <header class="jumbotron masthead">
         <div class="inner">
-          <h1>Ficha de cadastro <small>Pessoa jurídica</small> </h1>
+          <h1>Ficha de cadastro <small id="mainSubTitle"></small></h1>
         </div>
       </header>
       
-      <form class="form-horizontal" validation novalidate>
+      <p class="loading" spin></p>
+      <p class="fallback alert text-center hide" id="noSearchMessage">
+        É necessário informar o CNPJ. Clique <a href="index.html">aqui</a> para ser direcionado á pagina inicial.
+      </p>
+      <p class="fallback alert text-center hide" id="emptyMessage">
+        Não foram encontrados resultados para a busca. Clique <a href="index.html">aqui</a> para ser direcionado á pagina inicial.
+      </p>
+      
+      <form class="form-horizontal hide" id="mainForm" validation novalidate>
         
         <div class="accordion" id="accordionForm">
           <!-- 1. Identificação do cliente -->
@@ -56,33 +65,33 @@
                 <fieldset>
                   <!-- Razão social -->
                   <div class="control-group">
-                    <label class="control-label" for="razaoSocial">Razão social sem abreviações <em>*</em></label>
+                    <label class="control-label" for="nomeEmpresarial">Razão social sem abreviações <em>*</em></label>
                     <div class="controls">
-                      <input type="text" class="input-xxlarge" name="razaoSocial" id="razaoSocial" required="true" />
+                      <input type="text" class="input-xxlarge" name="nomeEmpresarial" id="nomeEmpresarial" required="true" />
                     </div>
                   </div>
                   
                   <!-- Nome comercial fantasia -->
                   <div class="control-group">
-                    <label class="control-label" for="nomeComercial">Nome comercial fantasia</label>
+                    <label class="control-label" for="nomeFantasia">Nome comercial fantasia</label>
                     <div class="controls">
-                      <input type="text" class="input-xxlarge" name="nomeComercial" id="nomeComercial" />
+                      <input type="text" class="input-xxlarge" name="nomeFantasia" id="nomeFantasia" />
                     </div>
                   </div>
                   
                   <!-- Nome do grupo econômico -->
                   <div class="control-group">
-                    <label class="control-label" for="nomeGrupoEconomico">Nome do grupo econômico</label>
+                    <label class="control-label" for="atividadeEconomica">Nome do grupo econômico</label>
                     <div class="controls">
-                      <input type="text" class="input-xxlarge" name="nomeGrupoEconomico" id="nomeGrupoEconomico" />
+                      <input type="text" class="input-xxlarge" name="atividadeEconomica" id="atividadeEconomica" />
                     </div>
                   </div>
                   
                   <!-- CNPJ -->
                   <div class="control-group">
-                    <label class="control-label" for="cnpj">CNPJ <em>*</em></label>
+                    <label class="control-label" for="numeroCnpj">CNPJ <em>*</em></label>
                     <div class="controls">
-                      <input type="text" class="input-medium" name="cnpj" id="cnpj" mask="cnpj" required="true"/>
+                      <input type="text" class="input-medium" name="numeroCnpj" id="numeroCnpj" mask="cnpj" required="true"/>
                     </div>
                   </div>
                 
@@ -130,7 +139,7 @@
                   <div class="control-group">
                     <label class="control-label" for="uf">UF <em>*</em></label>
                     <div class="controls">
-                      <input type="text" class="input-xxlarge" name="uf" id="uf" required="true" />
+                      <input type="text" class="input-mini uppercase" name="uf" id="uf" required="true" maxlength="2" mask="alpha"/>
                     </div>
                   </div>
                   
@@ -352,16 +361,16 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                     </tbody>
                   </table>
@@ -393,26 +402,33 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                      <tr id="acionista1">
+                        <td name="nome">--</td>
+                        <td name="cpfCnpj">--</td>
+                        <td name="modalidade">--</td>
+                        <td name="dataEntrada">--</td>
+                        <td name="capital">--</td>
                       </tr>
-                      <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                      <tr id="acionista2">
+                        <td name="nome">--</td>
+                        <td name="cpfCnpj">--</td>
+                        <td name="modalidade">--</td>
+                        <td name="dataEntrada">--</td>
+                        <td name="capital">--</td>
                       </tr>
-                      <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                      <tr id="acionista3">
+                        <td name="nome">--</td>
+                        <td name="cpfCnpj">--</td>
+                        <td name="modalidade">--</td>
+                        <td name="dataEntrada">--</td>
+                        <td name="capital">--</td>
+                      </tr>
+                      <tr id="acionista">
+                        <td name="nome">--</td>
+                        <td name="cpfCnpj">--</td>
+                        <td name="modalidade">--</td>
+                        <td name="dataEntrada">--</td>
+                        <td name="capital">--</td>
                       </tr>
                     </tbody>
                   </table>
@@ -423,7 +439,7 @@
           </div>
         
           <!-- 4. Diretores / Sócios - Gerentes -->
-          <div class="accordion-group">
+          <!-- <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionForm" href="#diretores">
                 <h3>4. Diretores / Sócios - Gerentes</h3>
@@ -444,22 +460,22 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                       <tr>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
-                        <td>Teste</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
                       </tr>
                     </tbody>
                   </table>
@@ -467,7 +483,7 @@
                 </fieldset>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         
         <div class="form-actions">
@@ -480,6 +496,9 @@
       
     <script src="javascript/vendors.js"></script>
     <script src="javascript/guideline.js"></script>
+    <script src="javascript/utils.js"></script>
+    <script src="javascript/hmQuery.js"></script>
+    <script src="javascript/juridica.js"></script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>
 </html>

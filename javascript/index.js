@@ -8,7 +8,10 @@
   var $tipoInput  = $('[name="tipoDocumento"]');
 
   // Objeto de notificações
-  var Feedback = window.Feedback;
+  var Feedback;
+  if (window.Utils !== undefined) {
+    Feedback = window.Utils.Feedback;
+  }
 
   // Callback chamado quando o radio de tipo de documento é alterado
   $tipoInput.change(function (event) {
@@ -34,13 +37,16 @@
 
   // Callback chamado no submit do form
   $formSearch.submit(function (event) {
-    if (!$('input[type="text"]:not(:hidden)').val()) {
+    $textInputHidden  = $('input[type="text"]:hidden');
+    $textInputVisible = $('input[type="text"]:not(:hidden)');
+
+    if (!$textInputVisible.val()) {
       if (typeof Feedback !== 'undefined' && Feedback !== null) {
         Feedback.error('Preenchimento obrigatório.');
       }
       event.preventDefault();
     } else {
-      $('input:hidden').remove();
+      $textInputHidden.remove();
     }
   });
 

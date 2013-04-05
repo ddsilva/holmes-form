@@ -15,11 +15,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="stylesheets/vendors.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/guideline.css">
-    
-    <style>
-      .input-radio { margin-left: 10px; }
-      .uppercase {text-transform: uppercase;}
-    </style>
+    <link rel="stylesheet" type="text/css" href="stylesheets/commom.css">
   </head>
   <body>
     <div class="application-navbar navbar">
@@ -42,11 +38,19 @@
     <div id="application" class="container">
       <header class="jumbotron masthead">
         <div class="inner">
-          <h1>Ficha de cadastro <small>Pessoa física</small> </h1>
+          <h1>Ficha de cadastro <small id="mainSubTitle"></small></h1>
         </div>
       </header>
       
-      <form class="form-horizontal" validation novalidate>
+      <p class="loading" spin></p>
+      <p class="fallback alert text-center hide" id="noSearchMessage">
+        É necessário informar o CPF. Clique <a href="index.html">aqui</a> para ser direcionado á pagina inicial.
+      </p>
+      <p class="fallback alert text-center hide" id="emptyMessage">
+        Não foram encontrados resultados para a busca. Clique <a href="index.html">aqui</a> para ser direcionado á pagina inicial.
+      </p>
+      
+      <form class="form-horizontal hide" id="mainForm" validation novalidate>
         
         <div class="accordion" id="accordionForm">
           <!-- 1. Dados da conta -->
@@ -56,7 +60,7 @@
                 <h3>1. Dados da conta</h3>
               </a>
             </div>
-            <div id="dadosConta" class="accordion-body collapse in">
+            <div id="dadosConta" class="accordion-body collapse">
               <div class="accordion-inner">
                 <fieldset>
 
@@ -110,7 +114,7 @@
                 <h3>2. Dados pessoais</h3>
               </a>
             </div>
-            <div id="dadosPessoais" class="accordion-body collapse">
+            <div id="dadosPessoais" class="accordion-body collapse in">
               <div class="accordion-inner">
                 <fieldset>
 
@@ -147,9 +151,9 @@
                   
                   <!-- Documento de identidade (Tipo e Nº) -->
                   <div class="control-group">
-                    <label class="control-label" for="identidade">Documento de identidade (Tipo e Nº) <em>*</em></label>
+                    <label class="control-label" for="numeroIdentidade">Documento de identidade (Tipo e Nº) <em>*</em></label>
                     <div class="controls">
-                      <input type="text" class="input-xxlarge" name="identidade" id="identidade" required="true" />
+                      <input type="text" class="input-xxlarge" name="numeroIdentidade" id="numeroIdentidade" required="true" />
                     </div>
                   </div>
                   
@@ -748,6 +752,9 @@
       
     <script src="javascript/vendors.js"></script>
     <script src="javascript/guideline.js"></script>
+    <script src="javascript/utils.js"></script>
+    <script src="javascript/hmQuery.js"></script>
+    <script src="javascript/fisica.js"></script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   </body>
 </html>

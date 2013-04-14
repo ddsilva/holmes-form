@@ -30,7 +30,7 @@
   // ================================================================
   //
   urlVars = window.Utils.getUrlVars();
-  cpf    = urlVars.cpf || '';
+  cpf     = urlVars.cpf || '';
 
   //
   // Executando a query e alterando a view

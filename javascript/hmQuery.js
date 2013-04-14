@@ -61,7 +61,7 @@
     doQuery: function(query, subTitle, fieldMap) {
       if (!fieldMap) { fieldMap = {}; }
       if (!subTitle) { subTitle = ''; }
-      self = this;
+      var self = this;
 
       // Cahe Dom Elements
       var $field,
@@ -71,7 +71,6 @@
           $loading         = $('.loading'),
           $mainSubTitle    = $('#mainSubTitle'),
           fieldTypes       = ['TEXT', 'NUMBER', 'LIST'];
-          arrayPromises    = [];
 
       $mainSubTitle.text(subTitle);
 
@@ -82,15 +81,11 @@
           if(!_.isEmpty(data.response.docs)) {
             $.each(data.response.docs, function (i, doc) {
               promise = self.readClassification(doc._document);
-
               promise.done(function(data){
-                self._log('------- Document -------');
-                self._log(data.documentName, '-', data.documentId);
                 $.each(data.values, function(i, object) {
-                  self._log(object.propertyName, '-', object.propertyValue);
-
                   if( _.indexOf( fieldTypes, object.propertyType) !== -1 )  {
-                    self._fillField(fieldMap[object.propertyName],
+                    self._fillField(
+                      fieldMap[object.propertyName],
                       object.propertyValue
                     );
                   }

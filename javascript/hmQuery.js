@@ -13,6 +13,8 @@
 
     _arrayPromises: [],
 
+    _apiUrl: 'https://qa.dclickholmes.com/holmes/api/search/',
+
     //
     // Executa o search
     // ================================================================
@@ -23,8 +25,8 @@
       }
 
       // Requisição da search 
-      var promise = $.ajax({
-        url  : 'https://qa.dclickholmes.com/holmes/api/search',
+      return $.ajax({
+        url  : this._apiUrl + 'search',
         data : $.extend(this._ajaxData, {
           query          : query,
           start          : 0,
@@ -32,12 +34,10 @@
           permissionType : 'VIEW'
         })
       });
-
-      return promise;
     },
 
     //
-    // Busca a classificação
+    // Executa a leitura de classificação
     // ================================================================
     //  
     readClassification: function(documentId) {
@@ -46,12 +46,10 @@
       }
 
       // Requisição da readClassification 
-      var promise = $.ajax({
-        url  : 'https://qa.dclickholmes.com/holmes/api/classification/readClassification/' + documentId,
-        data :this._ajaxData
+      return $.ajax({
+        url  : this._apiUrl + 'classification/readClassification/' + documentId,
+        data : this._ajaxData
       });
-
-      return promise;
     },
 
     //
@@ -83,7 +81,7 @@
               promise = self.readClassification(doc._document);
               promise.done(function(data){
                 $.each(data.values, function(i, object) {
-                  if( _.indexOf( fieldTypes, object.propertyType) !== -1 )  {
+                  if( _.indexOf(fieldTypes, object.propertyType) !== -1 )  {
                     self._fillField(
                       fieldMap[object.propertyName],
                       object.propertyValue
@@ -111,18 +109,6 @@
     },
 
     //
-    // Logger com fallback para o IE
-    // ================================================================
-    // 
-    _log: function() {
-      if (typeof console !== "undefined" && console !== null) {
-        if (typeof console.log === "function") {
-          console.log.apply(console, arguments);
-        }
-      }
-    },
-
-    //
     // Preenche um campo
     // ================================================================
     // 
@@ -132,6 +118,18 @@
         $field.text(value);
       } else if ($field && !$field.val()) {
         $field.val(value);
+      }
+    },
+
+    //
+    // Logger com fallback para o IE
+    // ================================================================
+    // 
+    _log: function() {
+      if (typeof console !== "undefined" && console !== null) {
+        if (typeof console.log === "function") {
+          console.log.apply(console, arguments);
+        }
       }
     }
 

@@ -13,7 +13,7 @@
 
     _arrayPromises: [],
 
-    _apiUrl: 'https://qa.dclickholmes.com/holmes/api/search/',
+    _apiUrl: 'https://qa.dclickholmes.com/holmes/api/',
 
     //
     // Executa o search
